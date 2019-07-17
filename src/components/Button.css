@@ -1,3 +1,15 @@
 .btn  {
     font-size: 3rem !important;
 }
+
+.btn.focus, .btn:focus, .btn-light.focus, .btn-light:focus {
+    box-shadow: unset;
+}
+
+.btn.double {
+    grid-column: span 2;
+}
+
+.btn.triple {
+    grid-column: span 3;
+}

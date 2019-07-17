@@ -1,8 +1,6 @@
 .calculator {
-    max-width: 25rem;
-}
-
-.border {
-    border: 5px solid black !important;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
 }
 
