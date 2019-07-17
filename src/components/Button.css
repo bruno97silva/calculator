@@ -2,7 +2,7 @@
     font-size: 3rem !important;
 }
 
-.btn.focus, .btn:focus, .btn-light.focus, .btn-light:focus {
+.btn.focus, .btn:focus, .btn-light.focus, .btn-light:focus, .btn-warning.focus, .btn-warning:focus {
     box-shadow: unset;
 }
 

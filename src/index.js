@@ -6,7 +6,7 @@ import Calculator from './main/Calculator';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-    <div className="container bg-danger text-center">
+    <div className="container text-center">
         <Calculator />
     </div>
 , document.getElementById('root'));
