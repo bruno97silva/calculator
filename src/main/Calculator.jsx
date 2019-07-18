@@ -98,7 +98,7 @@ export default class Calculator extends Component {
         return (
             <div className="row justify-content-center align-items-center">
                 <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                    <h1>Calculadora</h1>
+                    <h1>Calculator</h1>
                     <div className="card text-white bg-dark mb-5 mt-1">
                         <div className="card-header">
                             <Display value={this.state.displayValue}/>
