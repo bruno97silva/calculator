@@ -4,6 +4,7 @@
   "homepage": "https://bruno97silva.github.io/calculator/",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.9.0",
     "bootstrap": "^4.3.1",
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",

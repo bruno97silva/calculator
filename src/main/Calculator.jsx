@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Calculator.css'
+import '@fortawesome/fontawesome-free/css/all.min.css'
 
 import Button from '../components/Button'
 import Display from '../components/Display'
@@ -58,6 +59,9 @@ export default class Calculator extends Component {
             case '√':
                 result = Math.sqrt(values[1]);
                 break;
+            case '%':
+                result = (values[1] * (values[0] / 100));
+                break;
             default:
                 result = this.state.values[0];
         }
@@ -98,8 +102,8 @@ export default class Calculator extends Component {
         return (
             <div className="row justify-content-center align-items-center">
                 <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                    <h1>Calculator</h1>
-                    <div className="card text-white bg-dark mb-5 mt-1">
+                    <h1 className="text-white"><i className="fas fa-calculator text-body"></i> Calculator</h1>
+                    <div className="card text-white bg-dark">
                         <div className="card-header">
                             <Display value={this.state.displayValue}/>
                         </div>
