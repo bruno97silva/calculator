@@ -14,8 +14,6 @@ const initialState = {
 
 export default class Calculator extends Component {
 
-    state = { ...initialState }
-
     constructor(props) {
         super(props)
         this.clearMemory = this.clearMemory.bind(this)
@@ -23,11 +21,16 @@ export default class Calculator extends Component {
         this.addDigit = this.addDigit.bind(this)
     }
 
+    state = { ...initialState }
+
     clearMemory() {
         this.setState({ ...initialState })
     }
 
     setOperation(operation) {
+
+        const values = [...this.state.values];
+
         if (this.state.current === 0) {
             this.setState({ operation, current: 1, clearDisplay: true });
             return;
@@ -36,8 +39,8 @@ export default class Calculator extends Component {
         const equals = operation === "=";
         const currentOperation = this.state.operation;
 
-        const values = [...this.state.values];
-
+        console.log(equals);
+        console.log(currentOperation);
         let result;
         switch(currentOperation) {
             case '+':
@@ -51,6 +54,9 @@ export default class Calculator extends Component {
                 break;
             case '*':
                 result = values[0] * values[1];
+                break;
+            case '√':
+                result = Math.sqrt(values[1]);
                 break;
             default:
                 result = this.state.values[0];
@@ -100,7 +106,9 @@ export default class Calculator extends Component {
                         <div className="card-body">
                             <div className="row">
                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12  calculator">
-                                    <Button label="AC" click={this.clearMemory} triple />
+                                    <Button label="C" click={this.clearMemory} clear/>
+                                    <Button label="%" click={this.setOperation} operation/>
+                                    <Button label="√" click={this.setOperation} operation/>
                                     <Button label="/" click={this.setOperation} operation />
                                     <Button label="7" click={this.addDigit} />
                                     <Button label="8" click={this.addDigit} />

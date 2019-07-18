@@ -4,11 +4,14 @@ import './Button.css'
 export default props => {
 
     let btnColor = 'btn-light ';
-    if(props.operation) {
+    if (props.clear) {
+        btnColor = 'btn-danger ';
+    }
+    if (props.operation) {
         btnColor = 'btn-warning ';
     }
-    if(props.equal) {
-        btnColor = 'btn-primary ';
+    if (props.equal) {
+        btnColor = 'btn-success ';
     }
 
     let classes = 'btn ' + btnColor
