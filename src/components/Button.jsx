@@ -16,7 +16,6 @@ export default props => {
 
     let classes = 'btn ' + btnColor
     classes += props.double ? 'double' : ''
-    classes += props.triple ? 'triple' : ''
 
     return (
         <button

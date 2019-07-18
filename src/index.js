@@ -6,7 +6,7 @@ import Calculator from './main/Calculator';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-    <div className="container text-center">
+    <div className="container text-center mt-3">
         <Calculator />
     </div>
 , document.getElementById('root'));

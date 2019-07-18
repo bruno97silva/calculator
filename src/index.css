@@ -12,12 +12,3 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
-
-@font-face {
-    font-family: 'RobotoMono';
-    src: url('./fonts/RobotoMono-Thin.ttf');
-}
-
-* {
-    font-family: 'RobotoMono', monospace;
-}
