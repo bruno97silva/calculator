@@ -14,12 +14,7 @@ export default props => {
         btnColor = 'btn-success ';
     }
 
-<<<<<<< HEAD
     let classe = 'btn ' + btnColor;
-=======
-    let classes = 'btn ' + btnColor
-    classes += props.double ? 'double' : ''
->>>>>>> 021a3dbefb3e910fb73e7a1be615ca98c70d2e89
 
     return (
         <button
