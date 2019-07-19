@@ -37,33 +37,31 @@ export default class Calculator extends Component {
             return;
         }
 
-        const equals = operation === "=";
+        let equals = operation === "=";
         const currentOperation = this.state.operation;
 
-        console.log(equals);
-        console.log(currentOperation);
-        let result;
-        switch(currentOperation) {
-            case '+':
-                result = values[0] + values[1];
-                break;
-            case '-':
-                result = values[0] - values[1];
-                break;
-            case '/':
-                result = values[0] / values[1];
-                break;
-            case '*':
-                result = values[0] * values[1];
-                break;
-            case '√':
-                result = Math.sqrt(values[1]);
-                break;
-            case '%':
-                result = (values[1] * (values[0] / 100));
-                break;
-            default:
-                result = this.state.values[0];
+        let result = this.state.values[0];
+        if ((currentOperation === '+' || currentOperation === '-') && operation === '%') {
+            if (currentOperation === '+') {
+                result = values[0] + (values[1] * (values[0] / 100));
+            } else {
+                result = values[0] - (values[1] * (values[0] / 100));
+            }
+            equals = "=";
+        } else if (currentOperation === 'x²') {
+            result = values[0] ** values[1];
+        } else if (currentOperation === '+') {
+            result = values[0] + values[1];
+        } else if (currentOperation === '-') {
+            result = values[0] - values[1];
+        } else if (currentOperation === '÷') {
+            result = values[0] / values[1];
+        } else if (currentOperation === '×') {
+            result = values[0] * values[1];
+        } else if (currentOperation === '√') {
+            result = Math.sqrt(values[1]);
+        } else if (currentOperation === '%') {
+            result = (values[1] * (values[0] / 100));
         }
 
         values[0] = isNaN(result) || result === Infinity ? '0' : result;
@@ -94,7 +92,6 @@ export default class Calculator extends Component {
             const values = [...this.state.values];
             values[i] = newValue;
             this.setState({ values })
-            console.log(values);
         }
     }
 
@@ -110,25 +107,26 @@ export default class Calculator extends Component {
                         <div className="card-body">
                             <div className="row">
                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12  calculator">
-                                    <Button label="C" click={this.clearMemory} clear/>
-                                    <Button label="%" click={this.setOperation} operation/>
-                                    <Button label="√" click={this.setOperation} operation/>
-                                    <Button label="/" click={this.setOperation} operation />
-                                    <Button label="7" click={this.addDigit} />
-                                    <Button label="8" click={this.addDigit} />
-                                    <Button label="9" click={this.addDigit} />
-                                    <Button label="*" click={this.setOperation} operation />
-                                    <Button label="4" click={this.addDigit} />
-                                    <Button label="5" click={this.addDigit} />
-                                    <Button label="6" click={this.addDigit} />
-                                    <Button label="-" click={this.setOperation} operation />
-                                    <Button label="1" click={this.addDigit} />
-                                    <Button label="2" click={this.addDigit} />
-                                    <Button label="3" click={this.addDigit} />
-                                    <Button label="+" click={this.setOperation} operation />
-                                    <Button label="0" click={this.addDigit} double/>
-                                    <Button label="." click={this.addDigit} />
-                                    <Button label="=" click={this.setOperation} equal />
+                                    <Button label="C"   click={this.clearMemory} clear />
+                                    <Button label="%"   click={this.setOperation} operation />
+                                    <Button label="x²"  click={this.setOperation} operation />
+                                    <Button label="√"   click={this.setOperation} operation />
+                                    <Button label="7"   click={this.addDigit} />
+                                    <Button label="8"   click={this.addDigit} />
+                                    <Button label="9"   click={this.addDigit} />
+                                    <Button label="÷"   click={this.setOperation} operation />
+                                    <Button label="4"   click={this.addDigit} />
+                                    <Button label="5"   click={this.addDigit} />
+                                    <Button label="6"   click={this.addDigit} />
+                                    <Button label="×"   click={this.setOperation} operation />
+                                    <Button label="1"   click={this.addDigit} />
+                                    <Button label="2"   click={this.addDigit} />
+                                    <Button label="3"   click={this.addDigit} />
+                                    <Button label="-"   click={this.setOperation} operation />
+                                    <Button label="0"   click={this.addDigit} />
+                                    <Button label="."   click={this.addDigit} />
+                                    <Button label="="   click={this.setOperation} equal />
+                                    <Button label="+"   click={this.setOperation} operation />
                                 </div>
                             </div>
                         </div>

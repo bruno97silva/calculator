@@ -14,13 +14,12 @@ export default props => {
         btnColor = 'btn-success ';
     }
 
-    let classes = 'btn ' + btnColor
-    classes += props.double ? 'double' : ''
+    let classe = 'btn ' + btnColor;
 
     return (
         <button
             onClick={e => props.click && props.click(props.label)}
-            className={classes}>
+            className={classe}>
             {props.label}
         </button>
     )

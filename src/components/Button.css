@@ -5,7 +5,3 @@
 .btn.focus, .btn:focus, .btn-light.focus, .btn-light:focus, .btn-warning.focus, .btn-warning:focus {
     box-shadow: unset;
 }
-
-.btn.double {
-    grid-column: span 2;
-}
